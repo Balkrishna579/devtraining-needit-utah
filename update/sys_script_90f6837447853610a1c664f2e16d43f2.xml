@@ -28,46 +28,49 @@
         <rest_variables/>
         <role_conditions/>
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
-	
-	// Instantiate the NeedItUtils class.  Call the isDatePast method and pass
-	// the u_when_needed value.
-	var niutils = new NeedItUtils();
-	var isPast = niutils.isDatePast(current.u_when_needed);
-	
-	// If the isDatePast method returns true, the date is in the past.
+
+	var needltUtils = new NeedItUtils();
+	var isPast = needltUtils.isDatePast(current.u_when_needed);
+	// var currentTime= new GlideDateTime();
+	// currentTime.addDaysLocalTime(2);
+	// var whenNeeded = new GlideDateTime(current.u_when_needed);
+
 	if(isPast == true){
-		gs.addErrorMessage("When needed date cannot be in the past.  Your request has not been saved to the database.");
+		gs.addErrorMessage("Neede  Time is before current time. Please set needed time after current time required two days");
 		current.setAbortAction(true);
 	}
-	
-	
-	// pass the When needed field value to the isDateToday method in NeedItUtils
-	var isToday = niutils.isDateToday(current.u_when_needed);
-	
-	// if the isDateToday method returns true the When needed date is today 
-	if(isToday == true){
-		gs.addErrorMessage("You cannot submit NeedIt requests for today.");
-		current.setAbortAction(true);
-	}
-	
+
+	// Add your code here
+
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2017-03-03 00:44:14</sys_created_on>
+        <sys_created_on>2025-11-04 08:29:22</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>9373668d4fd93200cb281b818110c7f9</sys_id>
-        <sys_mod_count>29</sys_mod_count>
+        <sys_id>90f6837447853610a1c664f2e16d43f2</sys_id>
+        <sys_mod_count>10</sys_mod_count>
         <sys_name>NeedIt When needed field date</sys_name>
         <sys_overrides/>
         <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
         <sys_policy/>
         <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
-        <sys_update_name>sys_script_9373668d4fd93200cb281b818110c7f9</sys_update_name>
+        <sys_update_name>sys_script_90f6837447853610a1c664f2e16d43f2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-11-05 08:54:13</sys_updated_on>
+        <sys_updated_on>2025-11-05 08:55:50</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>
-    <sys_translated_text action="delete_multiple" query="documentkey=9373668d4fd93200cb281b818110c7f9"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=90f6837447853610a1c664f2e16d43f2"/>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>90f6837447853610a1c664f2e16d43f2</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-11-04 08:29:21</sys_created_on>
+        <sys_id>3b17477447853610a1c664f2e16d430f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-11-04 08:29:21</sys_updated_on>
+        <table>sys_script</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
 </record_update>
